@@ -1,0 +1,44 @@
+{% extends 'base.html'  %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{book.thumbnailUrl}}" class="rounded" width="256px" height="256px">
+        </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">Title</th>
+                        <td>{{book.title}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Author</th>
+                        <td>{{book.author}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Page Count</th>
+                        <td>{{book.pageCount}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>{{book.shortDescription}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Status</th>
+                        <td>{{book.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="float-right pt-0">
+        <a href="{{ url_for('website.home')}}" role="button" class="btn btn-secondary">Back</a>
+        {% if session['logged_in'] %}
+        <a href="{{ url_for('website.edit_book',book_id=book.id) }}" role="button" class="btn btn-primary">Edit</a>
+        <button type="button" class="btn btn-danger">Delete</button>
+        {% endif %}
+    </div>
+    <hr />
+</div>
+    {% endblock %}

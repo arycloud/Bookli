@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-3 ml-5 pl-5">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center">SignUp</h2>
+            <div class="container">
+                {% if msg %}
+                <p class="text-lg">{{ msg }}</p>
+                {% endif %}
+                <form method="POST" class="form" action="/user/signup">
+                    <div class="form-group">
+                            <input class="form-control" type="email" name="email" placeholder="Your Email"
+                                   autofocus="" required>
+                    </div>
+                    <div class="form-group">
+                            <input class="form-control" type="text" name="name"
+                                   placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                            <input class="form-control" type="password" name="password"
+                                   placeholder="Your Password" required/>
+                    </div>
+                    <div class="form-group">
+{#                        <label class="large">#}
+{#                            <input type="checkbox" class="">#}
+{#                            Remember me#}
+{#                        </label>#}
+                        <p>Already have an account? <a href="/user/login">Login</a></p>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">
+                        SignUp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

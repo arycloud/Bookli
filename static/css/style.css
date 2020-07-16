@@ -1,0 +1,7 @@
+.card-img-top {
+    flex-grow: 1;
+    object-fit:contain;
+}
+.card-body{
+    flex-grow:0;
+}

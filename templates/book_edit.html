@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ book.thumbnailUrl }}" class="rounded" width="256px" height="256px" alt="">
+            </div>
+            <div class="col-md-8">
+                <form action="" method="post">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Title</th>
+                            <td>
+                                <input type="text" class="form-control"
+                                       value="{{ book.title }}" name="title"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Author</th>
+                            <td>
+                                <input type="text" class="form-control"
+                                       value="{{ book.author }}" name="author"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Page Count</th>
+                            <td>
+                                <input type="number" class="form-control"
+                                       value="{{ book.pageCount }}" name="pageCount"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>
+                                <input type="text" class="form-control"
+                                       value="{{ book.shortDescription }}" name="shortDescription"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Status</th>
+                            <td>
+                                <input type="text" class="form-control"
+                                       value="{{ book.status }}" name="status"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Thumbnail Url</th>
+                            <td>
+                                <input type="text" class="form-control"
+                                       value="{{ book.thumbnailUrl}}" name="thumbnailUrl"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="float-right pt-0">
+                        <a href="{{ url_for('website.home')}}" role="button" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <hr/>
+{% endblock %}

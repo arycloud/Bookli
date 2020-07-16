@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row ml-3 mt-3">
+        <a class="btn btn-success" href="{{ url_for('website.create_book') }}"
+           role="button">Add New Book</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container-fluid">
+        <div class="row mt-3">
+            {% for b in books %}
+                <div class="col-lg-3 mb-3 pl-2">
+                    <div class="card text-center" style="width: 18rem; height: 50% !important;">
+                        <img src="{{ b.thumbnailUrl }}" class="card-img-top" height="180" width="100%" alt="">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ b.title}}</h5>
+{#                            <p class="card-text">{{ b.shortDescription}}</p>#}
+                            <a href="{{ url_for('website.single_book', id=b.id) }}" class="btn btn-primary">See Detail</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {#    <div class="container col-lg-12 mt-3">#}
+    {#        <div class="row ml-3">#}
+    {#            <a class="btn btn-success" href="{{ url_for('website.create_book') }}"#}
+    {#               role="button">Add New Book</a>#}
+    {#        </div>#}
+    {#        {% with messages = get_flashed_messages() %}#}
+    {#            {% if messages %}#}
+    {#                {% for message in messages %}#}
+    {#                    <div class="alert alert-primary alert-dismissible fade show" role="alert">#}
+    {#                        {{ message }}#}
+    {#                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
+    {#                            <span aria-hidden="true">&times;</span>#}
+    {#                        </button>#}
+    {#                    </div>#}
+    {#                {% endfor %}#}
+    {#            {% endif %}#}
+    {#        {% endwith %}#}
+    {#        <div class="row mt-2 ml-5 ">#}
+    {#            {% for b in books %}#}
+    {#                <div class="col-lg-4 pt-2">#}
+    {#                    <div class="card text-center" style="width: 17rem;">#}
+    {#                        <img class="card-img-top img-fluid"#}
+    {#                             src="{{ b.thumbnailUrl }}" alt="Book Cover">#}
+    {#                        <div class="card-body">#}
+    {#                            <h5>{{ b.title }}</h5>#}
+    {#                            <p class="card-text">{{ b.shortDescription }}</p>#}
+    {#                            <a href="{{ url_for('website.single_book', id=b.id) }}" class="centered btn btn-primary">Detail</a>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="container-fluid">#}
+    {#        <div class="row row-cols-2 row-cols-md-4">#}
+    {#            {% for b in books %}#}
+    {#            <div class="col mb-4">#}
+    {#                <div class="card" style="width: content-box  ; height: auto">#}
+    {#                    <img src="{{ b.thumbnailUrl }}" class="card-img-top">#}
+    {#                    <div class="card-body">#}
+    {#                        <p class="card-text">{{ b.title }}</p>#}
+    {#                    </div>#}
+    {#                    <div class="card-footer">#}
+    {#                        <a href="{{ url_for('website.single_book', id=b.id) }}" class="centered btn btn-primary">Detail</a>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            {% endfor %}#}
+    {#        </div>#}
+
+{% endblock %}
